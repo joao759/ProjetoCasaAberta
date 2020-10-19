@@ -15,6 +15,16 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
   </script>
+  <script src="js/bootstrap.js"></script>
+  <link href="css/bootstrap.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="eye1.ico">
+
+  <!-- parte alterada -->
+
+  <script src="javascript_Imagem.js"></script>
+
+  <!-- parte alterada -->
+
   <title>Casa Aberta · Daltonismo</title>
 
   <style>
@@ -40,8 +50,9 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye"
-          fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <a class="navbar-brand" href="#">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z" />
           <path fill-rule="evenodd"
@@ -54,13 +65,29 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Pronatopia<span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Deuteranopia<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Tritanopia<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Adaptar visão
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="border: none;">
+              <button class="dropdown-item nav-link" onclick="alter_ImageNormal();">Normal</button>
+              <button class="dropdown-item nav-link" onclick="alter_ImageProtanopia();">Pronatopia</button>
+              <button class="dropdown-item nav-link" onclick="alter_ImageDeuteranopia();">Deuteranopia</button>
+              <button class="dropdown-item nav-link" onclick="alter_ImageTritanopia();">Tritanopia</button>
+              <button class="dropdown-item nav-link" onclick="alter_ImageMonocromia();">Monocromia</button>
+            </div>
           </li>
         </ul>
       </div>
@@ -77,9 +104,14 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+
+          <!-- parte alterada -->
+
+          <img id="img1_Carousel" src="img1_Carousel.png" class="bd-placeholder-img" width="100%" height="100%"
             preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-            <img src="img1.jpg" width="100%" height="100%"></svg>
+
+          <!-- parte alterada -->
+
           <div class="container">
             <div class="carousel-caption">
               <h1>Projeto • Casa Aberta</h1>
@@ -88,7 +120,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img src="img2.png" class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+          <img id="img2_Carousel" src="img2_Carousel.png" class="bd-placeholder-img" width="100%" height="100%"
             preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
           <div class="container">
             <div class="carousel-caption">
@@ -98,7 +130,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img src="img3.png" class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+          <img id="img3_Carousel" src="img3_Carousel.png" class="bd-placeholder-img" width="100%" height="100%"
             preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
           <div class="container">
             <div class="carousel-caption">
@@ -127,92 +159,124 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <image src="Protanopia_Olho.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-          <h2>Protanopia</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
-            vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus
-            magna.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">Ver detalhes &raquo;</a></p>
+          <image id="Protanopia_Olho" src="Protanopia_Olho.jpg" class="bd-placeholder-img rounded-circle" width="140"
+            height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+            role="img" aria-label="Placeholder: 140x140">
+            <h2 style="color:rgb(29, 28, 28) !important;">Protanopia</h2>
+            <p class="p_color_dark">A protanopia ocorre quando os cones do tipo L não estão presentes na retina. Esta forma de
+              daltonismo faz com que as pessoas sejam menos sensíveis à luz vermelha, dificultando a
+              distinção das cores.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">Ver detalhes &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <image src="Deuteranopia_Olho.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-          <h2>Deuteranopia</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras
-            mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-            condimentum nibh.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">Ver detalhes &raquo;</a></p>
+          <image id="Deuteranopia_Olho" src="Deuteranopia_Olho.jpg" class="bd-placeholder-img rounded-circle"
+            width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+            focusable="false" role="img" aria-label="Placeholder: 140x140">
+            <h2 style="color:rgb(29, 28, 28) !important;">Deuteranopia</h2>
+            <p class="p_color_dark">A deuteranopia ocorre quando os cones do tipo M não estão presentes na retina. Pessoas com
+              esta forma de daltonismo possuem dificuldade em distinguir o vermelho do verde, o roxo do
+              azul, e alguns tons de cinza.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">Ver detalhes &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <image src="Tritanopia_Olho.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-          <h2>Tritanopia</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
-            felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-            massa justo sit amet risus.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">Ver detalhes &raquo;</a></p>
+          <image id="Tritanopia_Olho" src="Tritanopia_Olho.jpg" class="bd-placeholder-img rounded-circle" width="140"
+            height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+            role="img" aria-label="Placeholder: 140x140">
+            <h2 style="color:rgb(29, 28, 28) !important;">Tritanopia</h2>
+            <p class="p_color_dark">A tritanopia ocorre quando os cones do tipo S não estão presentes na retina. Pessoas com esta
+              forma de daltonismo possuem dificuldade em distinguir o azul do verde, e o amarelo do
+              violeta</p>
+            <p><a class="btn btn-secondary" href="#" role="button">Ver detalhes &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
-      <!-- START THE FEATURETTES -->
+      <!-- /END THE FEATURETTES -->
 
       <hr class="featurette-divider">
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span>
-          </h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-            semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-            commodo.</p>
+          <h2 style="color:rgb(29, 28, 28) !important; margin-bottom: 2rem;" class="featurette-heading">
+            O nosso projeto visa dar uma atenção especial a portadores de
+            daltonismo e a sua experiência dentro do ambiente online.</h2>
         </div>
         <div class="col-md-5">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-            height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
-            role="img" aria-label="Placeholder: 500x500">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-          </svg>
+          <img src="imagem_tipos_Daltonismo.jpg" style="border: 2px solid transparent; border-radius: 20px;"
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"
+            preserveAspectRatio="xMidYMid slice" focusable="false" role="img" />
+        </div>
+        <div class="col-md">
+          <p style="margin-top: 2rem;" class="lead p_color_dark">
+            <b>Segundo o site informativo da CFM (Conselho Federal de Medicina)
+              pesquisas apontam que 5% da população mundial possuem daltonismo.
+              Sendo esse um número muito considerável de pessoas que possuem uma visão diferente de
+              cores que se pode ter por normal. Nosso intuito com o projeto é
+              trazer a atenção para pessoas que possam ter de algum determinado distúrbio/problema
+              que afete de certa forma sua experiência dentro do ambienteonline.
+              No caso, optamos por escolher o daltonismo e trazer informações referentes ao mesmo e como o distúrbio
+              pode afetar negativamente pessoas portadoras em suas experiências navegando em sites.</b></p>
         </div>
       </div>
 
       <hr class="featurette-divider">
 
-      <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-            semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-            commodo.</p>
-        </div>
-        <div class="col-md-5 order-md-1">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-            height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
-            role="img" aria-label="Placeholder: 500x500">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-          </svg>
+      <div class="col-md">
+        <h2 style="color:rgb(29, 28, 28) !important" class="featurette-heading">A nossa ferramenta criada para poder ver
+          tudo de forma diferente</h2>
+        <p class="lead p_color_dark"><b>Com isso, trouxemos em nosso site uma ferramenta que
+            permite uma “emulação” de como seria de certa forma a visão por trás do daltonismo. Nosso intuito é fazer
+            com que as pessoas possam entender e reconhecer a importância da inclusão de minorias e lembrar de como
+            muitas das vezes essas pessoas são esquecidas e deixadas de lado seja na elaboração de um simples site da
+            internet ou de projetos muito maiores. </b></p>
+      </div>
+
+      <div style="margin-top:5rem" class="container">
+
+        <div class="container marketing">
+          <!-- Three columns of text below the carousel -->
+          <div class="row">
+            <div class="col-lg-4">
+              <image id="verde" src="verde_normal.jpg" class="bd-placeholder-img rounded-circle" width="140"
+                height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                <h2 style="color:#232323 !important">Verde</h2>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <image id="azul" src="azul_normal.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"
+                preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                <h2 style="color:#232323 !important">Azul</h2>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <image id="vermelho" src="vermelho_normal.jpg" class="bd-placeholder-img rounded-circle" width="140"
+                height="140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <h2 style="color:#232323 !important">Vermelho</h2>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <image id="roxo" src="roxo_normal.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"
+                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
+                <h2 style="color:#232323 !important">Roxo</h2>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <image id="laranja" src="laranja_normal.jpg" class="bd-placeholder-img rounded-circle" width="140"
+                height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                <h2 style="color:#232323 !important">Laranja</h2>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <image id="rosa" src="rosa_normal.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"
+                preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                <h2 style="color:#232323 !important">Rosa</h2>
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
         </div>
       </div>
 
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-            semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-            commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-            height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
-            role="img" aria-label="Placeholder: 500x500">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-          </svg>
-        </div>
+      <div class="col-md">
+        <p class="lead p_color_dark"><b>Para acessar a ferramenta de adaptação de cores basta
+            procurar no menu do site e selecionar o tipo que desejar, e então poder experienciar a forma de como seria
+            visualizar um site por tras de um tipo de daltonismo (Protanopia, Deuteranopia, Tritanopia e Monocromia).
+            Além disso também incluímos no site explicações e apresentações dos tipos de daltonismo; um teste de cores
+            de Ishihara (teste de daltonismo) e também uma apresentação de como foi a elaboração do site e como o
+            programamos.
+          </b></p>
       </div>
 
       <hr class="featurette-divider">
@@ -228,5 +292,12 @@
       <p>&copy; 2017-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </footer>
   </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script>
+    window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
+  </script>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>
