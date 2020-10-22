@@ -87,3 +87,33 @@ $("[data-toggle='toggle']").click(function() {
     var selector = $(this).data("target");
     $(selector).toggleClass('in');
 });
+
+function alter_ImagemNormal() {
+    document.getElementById("image1").src = "protanopia_normal.jpg";
+    document.getElementById("image2").src = "deutoranopia_normal.jpg";
+    document.getElementById("image3").src = "tritanopia_normal.jpg";
+}
+
+function alter_ImagemProtanopia() {
+    document.getElementById("image1").src = "p1.png";
+    document.getElementById("image2").src = "d1.png";
+    document.getElementById("image3").src = "t1.png";
+}
+
+function alter_ImagemDeuteranopia() {
+    document.getElementById("image1").src = "p2.png";
+    document.getElementById("image2").src = "d2.png";
+    document.getElementById("image3").src = "t2.png";
+}
+
+function alter_ImagemTritanopia() {
+    document.getElementById("image1").src = "p3.png";
+    document.getElementById("image2").src = "d3.png";
+    document.getElementById("image3").src = "t3.png";
+}
+
+function alter_ImagemMonocromia() {
+    document.getElementById("image1").src = "p4.png";
+    document.getElementById("image2").src = "d4.png";
+    document.getElementById("image3").src = "t4.png";
+}

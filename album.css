@@ -38,8 +38,20 @@ footer p {
 
 .txt {
   line-height: 1.5;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  color:rgb(18, 17, 17)!important;
+  font-weight: 400; 
   text-align: justify;
-  margin-top: 50px;
+}
+.p_color_dark {
   color:rgb(18, 17, 17)!important;
   font-weight: 400;
+  
+}
+.featurette-heading {
+  font-size: 50px;
+}
+.featurette-heading2 {
+  font-size: 65px;
 }
